@@ -10,5 +10,5 @@ setup(
     description='rvc package',
     author='RVC people',
     packages=find_packages(),
-    install_requires=requirements,  # Use the list of requirements here
+    install_requires=requirements,
 )
