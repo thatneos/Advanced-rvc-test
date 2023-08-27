@@ -58,15 +58,19 @@ def uvr(model_name, inp_root, save_root_vocal, paths, save_root_ins, agg, format
             infos.append(traceback.format_exc())
 
         if need_reformat == 1:
-            tmp_path = "%s/%s.reformatted.wav" % (tmp, os.path.basename(inp_root))
-            os.system("ffmpeg -i %s -vn -acodec pcm_s16le -ac 2 -ar 44100 %s -y" % (inp_root, tmp_path))
+            tmp_path = os.path.join(tmp, "{}.reformatted.wav".format(os.path.basename(inp_root)))
+            
+            # Wrap paths in double quotes to handle spaces
+            os.system('ffmpeg -i "{}" -vn -acodec pcm_s16le -ac 2 -ar 44100 "{}" -y'.format(inp_root, tmp_path))
+            
             inp_root = tmp_path
+
         try:
             if done == 0:
                 pre_fun._path_audio_(inp_root, save_root_ins, save_root_vocal, format0)
-            infos.append("%s->Success" % os.path.basename(inp_root))
+            infos.append("{}->Success".format(os.path.basename(inp_root)))
         except:
-            infos.append("%s->%s" % (os.path.basename(inp_root), traceback.format_exc()))
+            infos.append("{}->{}".format(os.path.basename(inp_root), traceback.format_exc()))
             
     except Exception as e:
         infos.append(traceback.format_exc())
