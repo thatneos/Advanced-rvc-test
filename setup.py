@@ -11,4 +11,5 @@ setup(
     author='RVC people',
     packages=find_packages(),
     install_requires=requirements,
+    include_package_data=True,
 )
