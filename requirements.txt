@@ -1,6 +1,6 @@
-numba==0.56.4
+numba
 fairseq==0.12.2
-faiss-cpu==1.7.3
+faiss-cpu
 gradio==3.30.0
 Cython
 pydub>=0.25.1
@@ -17,9 +17,6 @@ resampy>=0.4.2
 scikit-learn
 tensorboard
 tqdm>=4.63.1
-tornado>=6.1
-Werkzeug>=2.2.3
-uc-micro-py>=1.0.1
 sympy>=1.11.1
 tabulate>=0.8.10
 PyYAML>=6.0
